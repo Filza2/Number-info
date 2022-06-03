@@ -1,21 +1,13 @@
+
 import phonenumbers
 from os import system
 from phonenumbers import carrier
 from requests import get,post
-#mix Src @vv1ck + @EDISONpy + @TweakPY = Who's Calling ?
 def n1():
 	try:system("cls")
 	except:
 		try:system("clear")
 		except:pass
-	print('⇥'*30)
-	print("""
- _       ____             _         __  __    _    
-| |     / / /_  ____     (_)____   / /_/ /_  (_)____ 
-| | /| / / __ \/ __ \   / / ___/  / __/ __ \/ / ___/ ??
-| |/ |/ / / / / /_/ /  / (__  )  / /_/ / / / (__  ) ??
-|__/|__/_/ /_/\____/  /_/____/   \__/_/ /_/_/____/ ??
-               By JOKER @vv1ck""")
 	phon=input("\n[+] Enter Phone Number: ")
 	code=phon.split(' ')[0]
 	try:phone=phon.split(' ')[1]
@@ -57,22 +49,12 @@ def n2():
 	except:
 		try:system("clear")
 		except:pass
-	print('⇥'*30)
-	G="\033[1;32m"
-	R="\033[1;31m"
-	print(G+'''
-Extracting the number information
-/---------------------------------\\
-code by : ABDULLAH AL-RUQAISHI
-Telegram : @EDISONpy
-\---------------------------------/''')
-	response=get('http://ipinfo.io/json').json()
-	conuntry=response["country"]
-	number=input("[+] Enter number : ")
-	rr=post(f'https://devappteamcall.site/data/search_name?country={conuntry}',data=f'&phoneNumber={number}',headers={'Authorization': 'Basic YWEyNTAyOnp1enVBaGgy','User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 5.1.1; SM-G977N Build/LMY49I)','Host': 'devappteamcall.site','Connection': 'close','Accept-Encoding': 'gzip, deflate','Content-Type': 'application/x-www-form-urlencoded','Content-Length': '23'}).json()
-	print("")
-	if rr["errorDesc"]=="no data found":print(R+"[#]There is no information on the number at the moment")
-	else:print(rr)
+	res=get('http://ipinfo.io/json').json()
+	c=res["country"]
+	n=input("[+] Enter number : ")
+	r=post(f'https://devappteamcall.site/data/search_name?country={c}',data=f'&phoneNumber={n}',headers={'Authorization': 'Basic YWEyNTAyOnp1enVBaGgy','User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 5.1.1; SM-G977N Build/LMY49I)','Host': 'devappteamcall.site','Connection': 'close','Accept-Encoding': 'gzip, deflate','Content-Type': 'application/x-www-form-urlencoded','Content-Length': '23'},verify=False).json()
+	if r["errorDesc"]=="no data found":print("[-] There is no information on the number at the moment")
+	else:print(r)
 print("""
 ██╗    ██╗██╗  ██╗ ██████╗ ███████╗     ██████╗ █████╗ ██╗     ██╗     ██╗███╗   ██╗ ██████╗     ██████╗ 
 ██║    ██║██║  ██║██╔═══██╗██╔════╝    ██╔════╝██╔══██╗██║     ██║     ██║████╗  ██║██╔════╝     ╚════██╗
@@ -82,8 +64,9 @@ print("""
  ╚══╝╚══╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝     ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝       ╚═╝                                                                                                            
 By @TweakPY - @vv1ck - @EDISONpy - @8Y""")
 try:
-	b=int(input('\n1) Number info\n2) Number info\n--> '))
+	b=int(input('1- Number info\n2- Number info\n:'))
 	if b==1:n1()
 	elif b==2:n2()
-	else:exit('\n- Alright Then .. ')
-except:exit('\n- Alright Then .. ')
+	else:exit('\n- By @TweakPY - @vv1ck - @EDISONpy - @8Y .. ')
+except KeyboardInterrupt:exit(2030)
+except:exit('\n- By @TweakPY - @vv1ck - @EDISONpy - @8Y .. ')
