@@ -51,7 +51,7 @@ def n2():
 	res=get('http://ipinfo.io/json').json()
 	c=res["country"]
 	n=input("[+] Enter number : ")
-	r=post(f'https://devappteamcall.site/data/search_name?country={c}',data=f'&phoneNumber={n}',headers={'Authorization': 'Basic YWEyNTAyOnp1enVBaGgy','User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 5.1.1; SM-G977N Build/LMY49I)','Host': 'devappteamcall.site','Connection': 'close','Accept-Encoding': 'gzip, deflate','Content-Type': 'application/x-www-form-urlencoded','Content-Length': '23'},verify=False).json()
+	r=post(f'https://devappteamcall.site/data/search_name?country={c}',data=f'&phoneNumber={n}',headers={'Authorization': 'Basic YWEyNTAyOnp1enVBaGgy','User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 5.1.1; SM-G977N Build/LMY49I)','Host': 'devappteamcall.site','Connection': 'close','Accept-Encoding': 'gzip, deflate','Content-Type': 'application/x-www-form-urlencoded','Content-Length': '23'}).json()
 	if r["errorDesc"]=="no data found":print("[-] There is no information on the number at the moment")
 	else:print(r)
 print("""
