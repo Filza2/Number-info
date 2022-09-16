@@ -1,5 +1,5 @@
 try:import os,re;from phonenumbers import carrier,parse;from requests import get,post;from time import sleep
-except ModuleNotFoundError:exit('[!] Download The Missing Module !')
+except Exception as e:print(f'[!] Download The Missing Module ! , {e}');exit()
 def banner():
     os.system('cls' if os.name == 'nt' else 'clear')
     print("""
